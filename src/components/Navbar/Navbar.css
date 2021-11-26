@@ -9,7 +9,7 @@
 
 .example input[type="text"] {
   padding: 10px;
-  font-size: 17px;
+
   border: none;
   border-bottom: 2px solid #ffcd05;
   float: left;
@@ -39,6 +39,7 @@ select:focus {
   border: 1px solid #2196f3;
   border-left: none;
   cursor: pointer;
+  margin-top: 5px;
 
   border-radius: 0px 5px 5px 0px;
   -webkit-border-radius: 0px 5px 5px 0px;

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./ProductsDetails.css";
 import p1 from "../../../../Assets/p1.jpg";
+import ProductsReviewRating from "../ProductsReviewRating/ProductsReviewRating";
 
 const ProductsDetails = () => {
   const [showdetails, setShowdetils] = useState(true);
@@ -37,6 +38,43 @@ const ProductsDetails = () => {
           <p> Delivery Charge Tk.50(Online Order)</p>
           <p> Purchase & Earn</p>
           <hr />
+        </div>
+        <div className="related-boos-content">
+          <p>Related Books</p>
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img
+                  src="img_avatar.png"
+                  alt="Avatar"
+                  style={{ width: "300px", height: "300px" }}
+                />
+                sojib
+              </div>
+              <div class="flip-card-back">
+                <p>John Doe</p>
+                <p>Architect & Engineer</p>
+                <p>We love that guy</p>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img
+                  src="img_avatar.png"
+                  alt="Avatar"
+                  style={{ width: "300px", height: "300px" }}
+                />
+                sojib
+              </div>
+              <div class="flip-card-back">
+                <p>John Doe</p>
+                <p>Architect & Engineer</p>
+                <p>We love that guy</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div>
@@ -78,6 +116,7 @@ const ProductsDetails = () => {
           </p>
         </div>
       ) : null}
+      <ProductsReviewRating></ProductsReviewRating>
     </>
   );
 };

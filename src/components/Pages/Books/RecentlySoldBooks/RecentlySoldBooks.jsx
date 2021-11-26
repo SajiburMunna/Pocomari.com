@@ -20,20 +20,18 @@ const RecentlySoldBooks = () => {
           <Carousel
             className="car-content"
             plugins={[
-              "centered",
-
               "arrows",
               {
                 resolve: slidesToShowPlugin,
 
                 options: {
-                  numberOfSlides: 3,
+                  numberOfSlides: 5,
                 },
               },
               {
                 resolve: slidesToScrollPlugin,
                 options: {
-                  numberOfSlides: 3,
+                  numberOfSlides: 5,
                 },
               },
             ]}

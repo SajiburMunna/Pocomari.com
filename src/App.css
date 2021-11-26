@@ -8,3 +8,6 @@
 .contents {
   margin-top: 170px;
 }
+* {
+  box-sizing: border-box;
+}

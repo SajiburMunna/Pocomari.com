@@ -5,8 +5,13 @@ import pocologo from "../../Assets/pocologo.png";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  let navigate = useNavigate();
+  function handleClick() {
+    navigate("/login");
+  }
   return (
     <div>
       <div className="navcontent">
@@ -35,7 +40,9 @@ const Navbar = () => {
             <ShoppingCartOutlinedIcon fontSize="large" className="cartIcon" />
           </div>
           <div>
-            <button className="success">Login</button>
+            <button onClick={handleClick} className="success">
+              Login
+            </button>
           </div>
         </div>
       </div>

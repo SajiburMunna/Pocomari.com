@@ -1,16 +1,25 @@
 .recentlysoldbooks-content {
-  margin-bottom: 10px;
+  margin-bottom: 40px;
+  padding: 20px 0px 30px 0px;
+
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 12px 12px 24px #bdbdbd, -12px -12px 24px #ffffff;
+}
+.recentlysoldbooks-content h2 {
+  margin-left: 20px;
 }
 
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  width: 250px;
-  margin-bottom: 20px;
+  width: 200px;
+
   text-align: center;
 }
 .card img {
-  width: 250px;
+  height: 200px;
+  width: 200px;
 }
 
 .card:hover {
@@ -19,4 +28,8 @@
 
 .container {
   padding: 2px 16px;
+}
+
+.total-card-content {
+  padding: 20px;
 }

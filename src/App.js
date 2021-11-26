@@ -9,6 +9,7 @@ import InstitutionalOrder from "./components/Pages/InstitutionalOrder/Institutio
 import Stationery from "./components/Pages/Stationery/Stationery";
 import Blog from "./components/Pages/Blog/Blog";
 import Offers from "./components/Pages/Offers/Offers";
+import Login from "./components/Pages/Login/Login";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/stationery" element={<Stationery />} />
           <Route path="/offers" element={<Offers />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
         <Footer />
       </div>
