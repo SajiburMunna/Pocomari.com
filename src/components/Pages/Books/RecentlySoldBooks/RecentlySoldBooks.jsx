@@ -16,7 +16,11 @@ const RecentlySoldBooks = () => {
     <>
       <div className="recentlysoldbooks-content ">
         <div>
-          <h2>Recently Sold Books</h2>
+          <div>
+            <h2 className="rectsoldbooks-title">Recently Sold Books</h2>
+            <h4 className="recentsoldbooks-viewall">View All</h4>
+          </div>
+
           <Carousel
             className="car-content"
             plugins={[
@@ -39,55 +43,60 @@ const RecentlySoldBooks = () => {
             <div>
               <div class="card">
                 <img src={p1} alt="Avatar" />
-                <div class="container">
+                <div class=" rct-books-container">
                   <h4>
-                    <b>John Doe</b>
+                    <p>Book Name</p>
                   </h4>
-                  <p>Architect & Engineer</p>
+                  <p>Price :120TK</p>
+                  <button>Add Cart</button>
                 </div>
               </div>
             </div>
             <div>
               <div class="card">
                 <img src={p5} alt="Avatar" />
-                <div class="container">
+                <div class="rct-books-container">
                   <h4>
-                    <b>John Doe</b>
+                    <p>Book Name</p>
                   </h4>
-                  <p>Architect & Engineer</p>
+                  <p>Price :120TK</p>
+                  <button>Add Cart</button>
                 </div>
               </div>
             </div>
             <div>
               <div class="card">
                 <img src={p2} alt="Avatar" />
-                <div class="container">
+                <div class=" rct-books-container">
                   <h4>
-                    <b>John Doe</b>
+                    <p>Book Name</p>
                   </h4>
-                  <p>Architect & Engineer</p>
+                  <p>Price :120TK</p>
+                  <button>Add Cart</button>
                 </div>
               </div>
             </div>
             <div>
               <div class="card">
                 <img src={p3} alt="Avatar" />
-                <div class="container">
+                <div class=" rct-books-container">
                   <h4>
-                    <b>John Doe</b>
+                    <p>Book Name</p>
                   </h4>
-                  <p>Architect & Engineer</p>
+                  <p>Price :120TK</p>
+                  <button>Add Cart</button>
                 </div>
               </div>
             </div>
             <div>
               <div class="card">
                 <img src={p4} alt="Avatar" />
-                <div class="container">
+                <div class=" rct-books-container">
                   <h4>
-                    <b>John Doe</b>
+                    <p>Book Name</p>
                   </h4>
-                  <p>Architect & Engineer</p>
+                  <p>Price :120TK</p>
+                  <button>Add Cart</button>
                 </div>
               </div>
             </div>

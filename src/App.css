@@ -6,7 +6,9 @@
   top: 0;
 }
 .contents {
-  margin-top: 170px;
+  margin-top: 175px;
+  margin-left: 74px;
+  margin-right: 74px;
 }
 * {
   box-sizing: border-box;

@@ -4,11 +4,13 @@ import soildlogo from "../../../Assets/solidlogo.png";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import GoogleIcon from "@mui/icons-material/Google";
+
 const Login = () => {
   return (
     <>
       <div className="full-login-content">
         <div className=" login-container">
+          <h2> </h2>
           <form>
             <div class="row">
               <div className="login-logo">

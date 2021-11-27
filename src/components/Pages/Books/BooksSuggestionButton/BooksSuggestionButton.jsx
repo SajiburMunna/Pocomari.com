@@ -6,36 +6,37 @@ const BooksSuggestionButton = () => {
     <>
       <ScrollAnimation animateIn="bounceInRight" animateOut="bounceOutLeft">
         <div className="suggestion-button-content">
-          <div>
+          <div className="item">
             <h5>Extra discount</h5>
           </div>
-          <div>
+          <div className="item">
             <h5>Ekushey Book Fair</h5>
           </div>
-          <div>
+          <div className="item">
             <h5> Law and Justice</h5>
           </div>
-          <div>
+          <div className="item">
             <h5>Engineering </h5>
           </div>
-          <div>
+          <div className="item">
             <h5>Story</h5>
           </div>
-          <div>
+          <div className="item">
             <h5>Philosophy and Philosopher </h5>
           </div>
-          <div>
+          <div className="item">
             <h5>Medical </h5>
           </div>
-          <div>
+          <div className="item">
             <h5>Liberation War 1971</h5>
           </div>
-          <div>
+          <div className="item">
             <h5>Science Fiction </h5>
           </div>
-          <button class="button">
-            <span>ShowMore</span>
-          </button>
+
+          <div className="item">
+            <h5>Show More</h5>
+          </div>
         </div>
       </ScrollAnimation>
     </>

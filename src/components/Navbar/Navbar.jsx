@@ -10,7 +10,12 @@ import { useNavigate } from "react-router-dom";
 const Navbar = () => {
   let navigate = useNavigate();
   function handleClick() {
-    navigate("/login");
+    navigate({
+      pathname: "/login",
+      state: {
+        update: "good",
+      },
+    });
   }
   return (
     <div>

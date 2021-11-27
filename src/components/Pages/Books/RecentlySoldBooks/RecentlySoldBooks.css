@@ -4,10 +4,25 @@
 
   border-radius: 20px;
   background: #ffffff;
-  box-shadow: 12px 12px 24px #bdbdbd, -12px -12px 24px #ffffff;
+  box-shadow: 12px 12px 24px #b6b6b6, -12px -12px 24px #ffffff;
 }
 .recentlysoldbooks-content h2 {
   margin-left: 20px;
+}
+.rectsoldbooks-title {
+  float: left;
+}
+.recentsoldbooks-viewall {
+  float: right;
+  margin-right: 20px;
+  border: 1px solid rgb(10, 111, 243);
+  padding: 10px;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  cursor: pointer;
 }
 
 .card {
@@ -26,8 +41,33 @@
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-.container {
+.rct-books-container {
   padding: 2px 16px;
+  background-color: rgb(159, 181, 209);
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.rct-books-container button {
+  border: none;
+  font-size: large;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.rct-books-container button:hover {
+  color: rgb(10, 111, 243);
+  font-weight: bold;
 }
 
 .total-card-content {
