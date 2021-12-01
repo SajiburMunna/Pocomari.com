@@ -13,3 +13,7 @@
 * {
   box-sizing: border-box;
 }
+.footer-down {
+  position: relative;
+  z-index: 1;
+}

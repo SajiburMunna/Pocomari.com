@@ -10,6 +10,7 @@ import Stationery from "./components/Pages/Stationery/Stationery";
 import Blog from "./components/Pages/Blog/Blog";
 import Offers from "./components/Pages/Offers/Offers";
 import Login from "./components/Pages/Login/Login";
+import ViewAll from "./components/Pages/ViewAll/ViewAll";
 
 function App() {
   return (
@@ -29,8 +30,11 @@ function App() {
           <Route path="/offers" element={<Offers />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/viewall" element={<ViewAll />} />
         </Routes>
-        <Footer />
+        <div className="footer-down ">
+          <Footer />
+        </div>
       </div>
     </div>
   );

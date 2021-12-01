@@ -10,15 +10,22 @@ import p2 from "../../../../Assets/p2.jpg";
 import p3 from "../../../../Assets/p3.jpg";
 import p4 from "../../../../Assets/p4.jpg";
 import p5 from "../../../../Assets/p5.jpg";
+import { useNavigate } from "react-router-dom";
 
 const RecentlySoldBooks = () => {
+  const navigate = useNavigate();
+  const go = () => {
+    navigate("/viewall");
+  };
   return (
     <>
       <div className="recentlysoldbooks-content ">
         <div>
           <div>
             <h2 className="rectsoldbooks-title">Recently Sold Books</h2>
-            <h4 className="recentsoldbooks-viewall">View All</h4>
+            <h4 className="recentsoldbooks-viewall" onClick={() => go()}>
+              View All
+            </h4>
           </div>
 
           <Carousel

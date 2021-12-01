@@ -12,9 +12,6 @@ const Navbar = () => {
   function handleClick() {
     navigate({
       pathname: "/login",
-      state: {
-        update: "good",
-      },
     });
   }
   return (
