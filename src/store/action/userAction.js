@@ -49,3 +49,10 @@ export const requestAddNewUser = (newUser) => {
     dispatch(addNewUser(data));
   };
 };
+
+export const setUserProfileInfo = (userInfo) => {
+  return {
+    type: actionTypes.SET_USER_PROFILE,
+    payload: userInfo,
+  };
+};
