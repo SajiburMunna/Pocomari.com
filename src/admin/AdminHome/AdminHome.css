@@ -1,0 +1,29 @@
+.admin-home-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.admin-home-dashboard-div {
+  color: white;
+  border: 1px solid black;
+  padding: 5px 0px 0px 20px;
+  width: 300px;
+  height: 180px;
+  margin-top: 30px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  background-color: #002c4b;
+}
+
+.admin-home-dashboard-div :nth-child(1) {
+  color: #ffcd05;
+  font-size: 20px;
+}
+
+.admin-home-dashboard-div span {
+  font-size: 40px;
+}

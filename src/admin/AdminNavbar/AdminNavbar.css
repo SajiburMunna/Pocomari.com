@@ -1,0 +1,40 @@
+.admin-navbar {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+
+  background-color: #002c4b;
+  overflow-x: hidden;
+  padding-top: 16px;
+}
+
+.admin-navbar a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #f1f1f1;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.admin-navbar a:hover {
+  color: #ffcd05;
+}
+
+@media screen and (max-height: 450px) {
+  .admin-navbar {
+    padding-top: 15px;
+  }
+  .admin-navbar a {
+    font-size: 18px;
+  }
+}
+.admin-navbar-img {
+  margin-left: 50px;
+}
+.active {
+  background-color: rgb(39, 243, 3);
+}

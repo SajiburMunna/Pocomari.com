@@ -1,7 +1,6 @@
 import axios from "axios";
 
 import { actionTypes } from "../actionTypes";
-// import { BASE_URL } from "./../../utils/constants";
 
 export const addNewUser = (newUser) => {
   return {
@@ -49,10 +48,20 @@ export const requestAddNewUser = (newUser) => {
     dispatch(addNewUser(data));
   };
 };
-
 export const setUserProfileInfo = (userInfo) => {
   return {
-    type: actionTypes.SET_USER_PROFILE,
+    type: actionTypes.CURRENT_USER_INFO,
     payload: userInfo,
+  };
+};
+
+export const requestUserInfoByUser = (token) => {
+  return async (dispatch) => {
+    const { data } = await axios.get("http://localhost:8080/my-detail", {
+      headers: {
+        authorization: `bearer ${token}`,
+      },
+    });
+    dispatch(setUserProfileInfo(data));
   };
 };

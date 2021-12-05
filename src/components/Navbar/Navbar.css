@@ -64,7 +64,7 @@ select:focus {
   border: 2px solid rgb(235, 225, 225);
   background-color: white;
   color: black;
-  padding: 10px 20px;
+
   font-size: 15px;
   cursor: pointer;
   border-radius: 5px;

@@ -12,31 +12,44 @@ import Offers from "./components/Pages/Offers/Offers";
 import Login from "./components/Pages/Login/Login";
 import ViewAll from "./components/Pages/ViewAll/ViewAll";
 
-function App() {
-  return (
-    <div>
-      <div className="navbar-fix">
-        <Navbar />
-      </div>
+import { useSelector } from "react-redux";
+import Admin from "./admin/Admin/Admin";
 
-      <div className="contents">
-        <Routes>
-          <Route path="/" element={<Books />} />
-          <Route path="/books" element={<Books />} />
-          <Route path="/electronics" element={<Electronics />} />
-          <Route path="/giftfinder" element={<GiftFinder />} />
-          <Route path="/institutionalorder" element={<InstitutionalOrder />} />
-          <Route path="/stationery" element={<Stationery />} />
-          <Route path="/offers" element={<Offers />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/viewall" element={<ViewAll />} />
-        </Routes>
-        <div className="footer-down ">
-          <Footer />
+function App() {
+  const { role } = useSelector((state) => state.persistedStorage.currentUser);
+  console.log(role);
+  return (
+    <>
+      {role === "user" || role === "" ? (
+        <div>
+          <div className="navbar-fix">
+            <Navbar />
+          </div>
+          <div className="contents">
+            <Routes>
+              <Route path="/" element={<Books />} />
+              <Route path="/books" element={<Books />} />
+              <Route path="/electronics" element={<Electronics />} />
+              <Route path="/giftfinder" element={<GiftFinder />} />
+              <Route
+                path="/institutionalorder"
+                element={<InstitutionalOrder />}
+              />
+              <Route path="/stationery" element={<Stationery />} />
+              <Route path="/offers" element={<Offers />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/viewall" element={<ViewAll />} />
+            </Routes>
+            <div className="footer-down ">
+              <Footer />
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      ) : (
+        <Admin />
+      )}
+    </>
   );
 }
 

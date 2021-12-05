@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Navbar.css";
 
 import pocologo from "../../Assets/pocologo.png";
@@ -6,14 +6,39 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { requestUserInfoByUser } from "../../store/action/userAction";
+import { setToken } from "../../store/action/authAction";
 
 const Navbar = () => {
+  const cUserInfo = useSelector((state) => state);
+  const { role, email, token } = useSelector(
+    (state) => state.persistedStorage.currentUser
+  );
+  const dispatch = useDispatch();
+
+  console.log(cUserInfo);
+  useEffect(() => {
+    if (token !== "") {
+      dispatch(requestUserInfoByUser(token));
+    }
+  }, [token]);
+
   let navigate = useNavigate();
   function handleClick() {
     navigate({
       pathname: "/login",
     });
   }
+
+  const handleSignOut = () => {
+    dispatch(
+      setToken({
+        userInfo: { user: "", role: "", token: "" },
+      })
+    );
+  };
   return (
     <div>
       <div className="navcontent">
@@ -42,8 +67,12 @@ const Navbar = () => {
             <ShoppingCartOutlinedIcon fontSize="large" className="cartIcon" />
           </div>
           <div>
-            <button onClick={handleClick} className="success">
-              Login
+            <button className="success">
+              {token === "" ? (
+                <p onClick={handleClick}>Login</p>
+              ) : (
+                <p onClick={() => handleSignOut()}>Logout</p>
+              )}
             </button>
           </div>
         </div>
