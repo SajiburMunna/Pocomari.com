@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./AdminAddProducts.css";
 import Box from "@mui/material/Box";
 
@@ -6,12 +6,29 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import { useSelector, useDispatch } from "react-redux";
+import { requestCategoryList } from "../../store/action/categoryAction";
 
 const AdminAddProducts = () => {
-  const [category, setCategory] = React.useState("");
-
-  const handleChange = (event) => {
-    setCategory(event.target.value);
+  const { categoryList } = useSelector((state) => state.categoryReducer);
+  const dispatch = useDispatch();
+  const [toggle, setToggle] = useState(false);
+  const [productInfo, setProductInfo] = useState({
+    title: "",
+    image: "",
+    category: "",
+    price: "",
+    stock: "",
+    description: "",
+  });
+  console.log(productInfo);
+  useEffect(() => {
+    dispatch(requestCategoryList());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [toggle]);
+  const setPrductInfoValue = (key, e) => {
+    e.preventDefault();
+    setProductInfo({ ...productInfo, [key]: e.target.value });
   };
   return (
     <div>
@@ -23,6 +40,8 @@ const AdminAddProducts = () => {
             type="text"
             placeholder="Products Title"
             required
+            onChange={(e) => setPrductInfoValue("title", e)}
+            value={productInfo.title}
           />
           <div className="admin-addproducts-file-categories-div">
             <div>
@@ -32,6 +51,8 @@ const AdminAddProducts = () => {
                 id="myfile"
                 name="myfile"
                 required
+                onChange={(e) => setPrductInfoValue("image", e)}
+                value={productInfo.image}
               ></input>
             </div>
             <div>
@@ -43,14 +64,16 @@ const AdminAddProducts = () => {
                   <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
-                    value={category}
                     label=" category"
-                    onChange={handleChange}
                     required
+                    onChange={(e) => setPrductInfoValue("category", e)}
+                    value={productInfo.category}
                   >
-                    <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={20}>Twenty</MenuItem>
-                    <MenuItem value={30}>Thirty</MenuItem>
+                    {categoryList.map((ctg) => (
+                      <MenuItem key={ctg._id} value={ctg.name}>
+                        {ctg.name}
+                      </MenuItem>
+                    ))}
                   </Select>
                 </FormControl>
               </Box>
@@ -62,12 +85,16 @@ const AdminAddProducts = () => {
               type="number"
               placeholder="Products Price"
               required
+              onChange={(e) => setPrductInfoValue("price", e)}
+              value={productInfo.price}
             />
             <input
               style={{ width: "250px", marginLeft: "50px" }}
               type="number"
               placeholder="Products Stock"
               required
+              onChange={(e) => setPrductInfoValue("stock", e)}
+              value={productInfo.stock}
             />
           </div>
 
@@ -76,6 +103,8 @@ const AdminAddProducts = () => {
             type="text"
             placeholder="Product Description"
             required
+            onChange={(e) => setPrductInfoValue("description", e)}
+            value={productInfo.description}
           />
           <br />
           <input

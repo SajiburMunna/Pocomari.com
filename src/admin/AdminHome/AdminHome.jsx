@@ -1,7 +1,16 @@
-import React from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useState } from "react";
 import "./AdminHome.css";
+import { useSelector, useDispatch } from "react-redux";
+import { requestCategoryList } from "../../store/action/categoryAction";
 
 const AdminHome = () => {
+  const [togle, setTogle] = useState(false);
+  const dispatch = useDispatch();
+  const { categoryList } = useSelector((state) => state.categoryReducer);
+  useEffect(() => {
+    dispatch(requestCategoryList());
+  }, [togle]);
   return (
     <div className="admin-home-div">
       <div className="admin-home-dashboard-div">
@@ -25,7 +34,7 @@ const AdminHome = () => {
       </div>
       <div className="admin-home-dashboard-div">
         <p>Total Categories</p>
-        <span>100</span>
+        <span>{categoryList.length}</span>
       </div>
       <div className="admin-home-dashboard-div">
         <p>Total View Products</p>
