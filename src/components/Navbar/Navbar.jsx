@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
 import "./Navbar.css";
 
@@ -12,13 +13,9 @@ import { requestUserInfoByUser } from "../../store/action/userAction";
 import { setToken } from "../../store/action/authAction";
 
 const Navbar = () => {
-  const cUserInfo = useSelector((state) => state);
-  const { role, email, token } = useSelector(
-    (state) => state.persistedStorage.currentUser
-  );
+  const { token } = useSelector((state) => state.persistedStorage.currentUser);
   const dispatch = useDispatch();
 
-  console.log(cUserInfo);
   useEffect(() => {
     if (token !== "") {
       dispatch(requestUserInfoByUser(token));
@@ -67,13 +64,15 @@ const Navbar = () => {
             <ShoppingCartOutlinedIcon fontSize="large" className="cartIcon" />
           </div>
           <div>
-            <button className="success">
-              {token === "" ? (
-                <p onClick={handleClick}>Login</p>
-              ) : (
-                <p onClick={() => handleSignOut()}>Logout</p>
-              )}
-            </button>
+            {token === "" ? (
+              <button className="success" onClick={handleClick}>
+                Login
+              </button>
+            ) : (
+              <button className="success" onClick={() => handleSignOut()}>
+                Logout
+              </button>
+            )}
           </div>
         </div>
       </div>

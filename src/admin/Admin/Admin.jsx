@@ -9,6 +9,7 @@ import AdminOrders from "./../AdminOrders/AdminOrders";
 import AdminAddUsers from "./../AdminAddUsers/AdminAddUsers";
 import AdminAllUsers from "./../AdminAllUsers/AdminAllUsers";
 import AdminCategories from "./../AdminCategories/AdminCategories";
+import AdminEditProducts from "./../AdminEditProducts/AdminEditProducts";
 
 const Admin = () => {
   return (
@@ -23,6 +24,7 @@ const Admin = () => {
           <Route path="/addusers" element={<AdminAddUsers />} />
           <Route path="/allusers" element={<AdminAllUsers />} />
           <Route path="/categories" element={<AdminCategories />} />
+          <Route path="/product/edit/:id" element={<AdminEditProducts />} />
         </Routes>
       </div>
     </div>

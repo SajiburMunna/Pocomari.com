@@ -38,3 +38,9 @@
 .active {
   background-color: rgb(39, 243, 3);
 }
+
+.admin-nav-icon {
+  display: flex;
+
+  align-items: center;
+}

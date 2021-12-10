@@ -3,24 +3,33 @@ import React, { useEffect, useState } from "react";
 import "./AdminHome.css";
 import { useSelector, useDispatch } from "react-redux";
 import { requestCategoryList } from "../../store/action/categoryAction";
+import { requestProductList } from "./../../store/action/productAction";
 
 const AdminHome = () => {
   const [togle, setTogle] = useState(false);
   const dispatch = useDispatch();
+  const { email, role } = useSelector(
+    (state) => state.persistedStorage.currentUser
+  );
   const { categoryList } = useSelector((state) => state.categoryReducer);
+  const { productListReducer } = useSelector((state) => state);
+
   useEffect(() => {
     dispatch(requestCategoryList());
+  }, [togle]);
+  useEffect(() => {
+    dispatch(requestProductList());
   }, [togle]);
   return (
     <div className="admin-home-div">
       <div className="admin-home-dashboard-div">
         <p>Admin Info</p>
-        <p>UserName</p>
-        <p>Email</p>
+        <p>Email : {email}</p>
+        <p>Role : {role}</p>
       </div>
       <div className="admin-home-dashboard-div">
         <p>Total Products</p>
-        <span>100</span>
+        <span>{productListReducer && productListReducer.length}</span>
       </div>
       <div className="admin-home-dashboard-div">
         <p>Total Orders</p>

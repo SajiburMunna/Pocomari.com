@@ -26,4 +26,12 @@
 
 .admin-home-dashboard-div span {
   font-size: 40px;
+  color: rgb(61, 209, 61);
+  background-color: rgb(255, 255, 255);
+  padding: 5px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }

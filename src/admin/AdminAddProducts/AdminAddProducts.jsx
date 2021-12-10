@@ -8,20 +8,28 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { useSelector, useDispatch } from "react-redux";
 import { requestCategoryList } from "../../store/action/categoryAction";
+import { requestAddNewProduct } from "../../store/action/productAction";
+import { useNavigate } from "react-router-dom";
 
 const AdminAddProducts = () => {
+  const navigate = useNavigate();
+
   const { categoryList } = useSelector((state) => state.categoryReducer);
   const dispatch = useDispatch();
   const [toggle, setToggle] = useState(false);
   const [productInfo, setProductInfo] = useState({
     title: "",
     image: "",
-    category: "",
+    categoryId: "",
     price: "",
     stock: "",
     description: "",
   });
   console.log(productInfo);
+
+  const [baseImage, setBaseImage] = useState("");
+  const [isImageChanged, setIsImageChanged] = useState(false);
+  const { token } = useSelector((state) => state.persistedStorage.currentUser);
   useEffect(() => {
     dispatch(requestCategoryList());
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -30,10 +38,52 @@ const AdminAddProducts = () => {
     e.preventDefault();
     setProductInfo({ ...productInfo, [key]: e.target.value });
   };
+
+  useEffect(() => {
+    setProductInfo({
+      ...productInfo,
+      categoryId: categoryList[0]?._id,
+    });
+  }, [categoryList]);
+
+  const uploadProductImage = async (e) => {
+    setIsImageChanged(true);
+    const file = e.target.files[0];
+    const base64 = await convertBase64(file);
+    setBaseImage(base64);
+    setProductInfo({ ...productInfo, image: base64 });
+    setToggle(false);
+  };
+
+  const convertBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => resolve(fileReader.result);
+      fileReader.onerror = (error) => reject(error);
+    });
+  };
+  const requestAddProduct = (e) => {
+    e.preventDefault();
+    dispatch(requestAddNewProduct(productInfo, token));
+    navigate("/allproducts");
+  };
   return (
     <div>
       <h1 className="admin-addproducts-headline ">Add products</h1>
-      <form action="">
+      {isImageChanged && (
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <img
+            style={{ textAlign: "center" }}
+            src={isImageChanged ? baseImage : null}
+            height="100px"
+            width="100"
+            alt=""
+          />
+        </div>
+      )}
+
+      <form onSubmit={requestAddProduct} action="">
         <div style={{ textAlign: "center" }}>
           <input
             style={{ width: "550px", marginBottom: "20px" }}
@@ -51,8 +101,7 @@ const AdminAddProducts = () => {
                 id="myfile"
                 name="myfile"
                 required
-                onChange={(e) => setPrductInfoValue("image", e)}
-                value={productInfo.image}
+                onChange={(e) => uploadProductImage(e)}
               ></input>
             </div>
             <div>
@@ -66,11 +115,17 @@ const AdminAddProducts = () => {
                     id="demo-simple-select"
                     label=" category"
                     required
-                    onChange={(e) => setPrductInfoValue("category", e)}
-                    value={productInfo.category}
+                    onChange={
+                      (e) => setPrductInfoValue("categoryId", e)
+                      // setProductInfo({
+                      //   ...productInfo,
+                      //   categoryId: e.target.value,
+                      // })
+                    }
+                    value={productInfo._id}
                   >
                     {categoryList.map((ctg) => (
-                      <MenuItem key={ctg._id} value={ctg.name}>
+                      <MenuItem key={ctg._id} value={ctg._id}>
                         {ctg.name}
                       </MenuItem>
                     ))}

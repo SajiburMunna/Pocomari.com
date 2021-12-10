@@ -4,17 +4,17 @@ import p1 from "../../../../Assets/p1.jpg";
 import ProductsReviewRating from "../ProductsReviewRating/ProductsReviewRating";
 
 const ProductsDetails = () => {
-  const [showdetails, setShowdetils] = useState(true);
-  const [showdet, setShowdet] = useState(false);
+  // const [showdetails, setShowdetils] = useState(true);
+  // const [showdet, setShowdet] = useState(false);
 
-  const show = () => {
-    setShowdetils(true);
-    setShowdet(false);
-  };
-  const show1 = () => {
-    setShowdetils(false);
-    setShowdet(true);
-  };
+  // const show = () => {
+  //   setShowdetils(true);
+  //   setShowdet(false);
+  // };
+  // const show1 = () => {
+  //   setShowdetils(false);
+  //   setShowdet(true);
+  // };
   return (
     <>
       <div className="pd-details-content">
@@ -80,7 +80,7 @@ const ProductsDetails = () => {
       <div>
         <p className="pd-details-active">Product Specification & Summary</p>
       </div>
-      <div class="tab">
+      {/* <div class="tab">
         <button class="tablinks" onClick={() => show()}>
           <span className={`${showdetails ? "pd-details-active" : null}`}>
             Summary
@@ -115,7 +115,7 @@ const ProductsDetails = () => {
             maxime, nisi perspiciatis iusto!
           </p>
         </div>
-      ) : null}
+      ) : null} */}
       <ProductsReviewRating></ProductsReviewRating>
     </>
   );

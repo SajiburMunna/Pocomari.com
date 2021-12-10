@@ -70,7 +70,7 @@ const AdminCategories = () => {
   const handleUpdatedCategory = (e) => {
     e.preventDefault();
     dispatch(requestUpdateCategory(id, ecategory, token));
-    console.log(id, ecategory, token);
+
     setEcategory({ name: "", description: "" });
     setEditCategory(false);
   };
@@ -166,7 +166,7 @@ const AdminCategories = () => {
           <th>Action</th>
         </tr>
         {categoryList.map((ctg) => (
-          <tr>
+          <tr key={ctg._id}>
             <td>{ctg.name}</td>
             <td>{ctg.description}</td>
             <td>

@@ -6,6 +6,9 @@ import authReducer from "./AuthReducer/authReducer";
 import CurrentUserInfoReducer from "./UserReducer/CurrentUserInfoReducer";
 import categoryReducer from "./CategoryReducer/categoryReducer";
 import EditCategoryReducer from "./CategoryReducer/EditCategoryReducer";
+import productListReducer from "./ProductReducer/ProductListReducer";
+import editProductReducer from "./ProductReducer/editProductReducer";
+import ProductsDetails from "./../../components/Pages/Products/ProductsDetails/ProductsDetails";
 
 const persistConfig = {
   key: "pocomari",
@@ -24,5 +27,8 @@ const rootReducer = combineReducers({
   CurrentUserInfoReducer,
   categoryReducer,
   EditCategoryReducer,
+  productListReducer,
+  editProductReducer,
+  ProductsDetails,
 });
 export default rootReducer;
