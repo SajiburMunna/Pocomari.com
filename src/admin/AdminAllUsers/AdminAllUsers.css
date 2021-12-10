@@ -1,0 +1,13 @@
+.user-color {
+  color: rgb(160, 61, 4);
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+.admin-color {
+  text-transform: uppercase;
+  font-weight: bolder;
+  color: rgb(15, 219, 25);
+}
+.textdec {
+  text-align: left;
+}

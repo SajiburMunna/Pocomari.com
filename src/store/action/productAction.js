@@ -58,7 +58,6 @@ export const requestDeleteProduct = (id, token) => {
   };
 };
 
-//Set Single Product For Update
 export const setCurrentProduct = (currentProduct) => {
   return {
     type: actionTypes.SET_SINGLE_PRODUCT_FOR_EDIT,

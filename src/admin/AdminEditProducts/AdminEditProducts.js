@@ -34,7 +34,7 @@ const AdminEditProducts = () => {
   const { categoryList } = useSelector((state) => state.categoryReducer);
   const { token } = useSelector((state) => state.persistedStorage.currentUser);
   const { editProductReducer } = useSelector((state) => state);
-
+  console.log(token);
   useEffect(() => {
     dispatch(requestCategoryList());
     dispatch(requestSingleProduct(id, token));
@@ -45,7 +45,7 @@ const AdminEditProducts = () => {
       ...currentProduct,
       title: editProductReducer?.title,
       image: editProductReducer?.image,
-      categoryId: editProductReducer?.category._id,
+      categoryId: editProductReducer?.category._id.toString(),
       price: editProductReducer?.price,
       stock: editProductReducer?.stock,
       description: editProductReducer?.description,
@@ -69,37 +69,36 @@ const AdminEditProducts = () => {
     });
   };
 
-  const setEditedCurrentProduct = (key, e) => {
+  // const setEditedCurrentProduct = (key, e) => {
+  //   setCurrentProduct({ ...currentProduct, [key]: e.target.value });
+  // };
+
+  const setEditedCurrentProduct = (e, key) => {
     setCurrentProduct({ ...currentProduct, [key]: e.target.value });
   };
 
   const handleUpdateProduct = (e) => {
-    console.log(currentProduct);
     e.preventDefault();
-    // dispatch(requestUpdateProduct(id, currentProduct, isImageChanged, token));
-    // navigate("/allproducts");
+    dispatch(requestUpdateProduct(id, currentProduct, isImageChanged, token));
+    console.log(currentProduct.categoryId.toString());
+    navigate("/allproducts");
   };
 
   return (
     <div>
       <div>
-        <h1 className="admin-addproducts-headline ">Add products</h1>
-        {isImageChanged && (
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <img
-              style={{ textAlign: "center" }}
-              src={
-                isImageChanged
-                  ? baseImage
-                  : `${BASE_URL}/${currentProduct?.image}`
-              }
-              height="100px"
-              width="100"
-              alt=""
-            />
-          </div>
-        )}
-
+        <h1 className="admin-addproducts-headline ">EDIT products</h1>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <img
+            style={{ textAlign: "center" }}
+            src={
+              isImageChanged ? baseImage : `${BASE_URL}${currentProduct?.image}`
+            }
+            height="100px"
+            width="100"
+            alt=""
+          />
+        </div>
         <form onSubmit={handleUpdateProduct} action="">
           <div style={{ textAlign: "center" }}>
             <input
@@ -107,7 +106,7 @@ const AdminEditProducts = () => {
               type="text"
               placeholder="Products Title"
               required
-              onChange={(e) => setEditedCurrentProduct("title", e)}
+              onChange={(e) => setEditedCurrentProduct(e, "title")}
               value={currentProduct.title}
             />
             <div className="admin-addproducts-file-categories-div">
@@ -117,7 +116,6 @@ const AdminEditProducts = () => {
                   type="file"
                   id="myfile"
                   name="myfile"
-                  required
                   onChange={(e) => uploadProductImage(e)}
                 ></input>
               </div>
@@ -132,18 +130,13 @@ const AdminEditProducts = () => {
                       id="demo-simple-select"
                       label=" category"
                       required
-                      onChange={
-                        (e) =>
-                          setCurrentProduct({
-                            ...currentProduct,
-                            categoryId: e.target.value,
-                          })
-                        // setProductInfo({
-                        //   ...productInfo,
-                        //   categoryId: e.target.value,
-                        // })
+                      onChange={(e) =>
+                        setCurrentProduct({
+                          ...currentProduct,
+                          categoryId: e.target.value,
+                        })
                       }
-                      value={currentProduct._id}
+                      value={currentProduct.categoryId}
                     >
                       {categoryList.map((ctg) => (
                         <MenuItem key={ctg._id} value={ctg._id}>
@@ -161,12 +154,7 @@ const AdminEditProducts = () => {
                 type="number"
                 placeholder="Products Price"
                 required
-                onChange={(e) =>
-                  setCurrentProduct({
-                    ...currentProduct,
-                    price: e.target.value,
-                  })
-                }
+                onChange={(e) => setEditedCurrentProduct(e, "price")}
                 value={currentProduct.price}
               />
               <input
@@ -174,12 +162,7 @@ const AdminEditProducts = () => {
                 type="number"
                 placeholder="Products Stock"
                 required
-                onChange={(e) =>
-                  setCurrentProduct({
-                    ...currentProduct,
-                    stock: e.target.value,
-                  })
-                }
+                onChange={(e) => setEditedCurrentProduct(e, "stock")}
                 value={currentProduct.stock}
               />
             </div>
@@ -189,7 +172,7 @@ const AdminEditProducts = () => {
               type="text"
               placeholder="Product Description"
               required
-              onChange={(e) => setCurrentProduct("description", e)}
+              onChange={(e) => setEditedCurrentProduct(e, "description")}
               value={currentProduct.description}
             />
             <br />

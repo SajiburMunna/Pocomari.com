@@ -1,6 +1,7 @@
 import axios from "axios";
 
 import { actionTypes } from "../actionTypes";
+import { BASE_URL } from "../../utils/constants";
 
 export const addNewUser = (newUser) => {
   return {
@@ -63,5 +64,23 @@ export const requestUserInfoByUser = (token) => {
       },
     });
     dispatch(setUserProfileInfo(data));
+  };
+};
+
+export const setUserList = (userList) => {
+  return {
+    type: actionTypes.SET_USER_LIST,
+    payload: userList,
+  };
+};
+
+export const requestUserList = (token) => {
+  return async (dispatch) => {
+    const { data } = await axios.get("http://localhost:8080/user/", {
+      headers: {
+        authorization: `bearer ${token}`,
+      },
+    });
+    dispatch(setUserList(data));
   };
 };

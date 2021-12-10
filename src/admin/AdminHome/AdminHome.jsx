@@ -4,15 +4,21 @@ import "./AdminHome.css";
 import { useSelector, useDispatch } from "react-redux";
 import { requestCategoryList } from "../../store/action/categoryAction";
 import { requestProductList } from "./../../store/action/productAction";
+import { requestUserList } from "../../store/action/userAction";
 
 const AdminHome = () => {
   const [togle, setTogle] = useState(false);
   const dispatch = useDispatch();
-  const { email, role } = useSelector(
+  const { email, role, token } = useSelector(
     (state) => state.persistedStorage.currentUser
   );
   const { categoryList } = useSelector((state) => state.categoryReducer);
   const { productListReducer } = useSelector((state) => state);
+  const { userList } = useSelector((state) => state.UserListReducer);
+
+  useEffect(() => {
+    dispatch(requestUserList(token));
+  }, [token]);
 
   useEffect(() => {
     dispatch(requestCategoryList());
@@ -39,7 +45,7 @@ const AdminHome = () => {
       </div>
       <div className="admin-home-dashboard-div">
         <p>Total Users</p>
-        <span>100</span>
+        <span>{userList && userList.length}</span>
       </div>
       <div className="admin-home-dashboard-div">
         <p>Total Categories</p>
