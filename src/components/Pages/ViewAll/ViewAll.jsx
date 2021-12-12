@@ -1,7 +1,33 @@
-import React from "react";
+/* eslint-disable no-redeclare */
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-unused-vars */
+import React, { useEffect, useState } from "react";
 import "./ViewAll.css";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
+import { requestProductList } from "./../../../store/action/productAction";
+import { useLocation } from "react-router-dom";
+
+import ProductCard from "./../ProductCard/ProductCard";
 const ViewAll = () => {
+  const location = useLocation();
+
+  const dispatch = useDispatch();
+  const { token } = useSelector((state) => state.persistedStorage.currentUser);
+  const { productListReducer } = useSelector((state) => state);
+
+  useEffect(() => {
+    dispatch(requestProductList(token));
+  }, [token]);
+  if (productListReducer) {
+    var total = productListReducer.length;
+
+    var cat = productListReducer.filter(
+      (pd) => pd.category.name === location.state
+    );
+  }
+
   return (
     <div>
       <div class="sidenav">
@@ -9,96 +35,14 @@ const ViewAll = () => {
         <a href="#services">Services</a>
         <a href="#clients">Clients</a>
         <a href="#contact">Contact</a>
-        <p>
-          Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum
-          definitiones no quo, maluisset concludaturque et eum, altera fabulas
-          ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum.
-          Affert laboramus repudiandae nec et. Inciderint efficiantur his ad.
-          Eum no molestiae voluptatibus.
-        </p>{" "}
-        <p>
-          Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum
-          definitiones no quo, maluisset concludaturque et eum, altera fabulas
-          ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum.
-          Affert laboramus repudiandae nec et. Inciderint efficiantur his ad.
-          Eum no molestiae voluptatibus.
-        </p>
       </div>
 
       <div class="main">
-        <h2>Sidebar</h2>
-        <p>This sidebar is of full height (100%) and always shown.</p>
-        <p>Scroll down the page to see the result.</p>
-        <p>
-          Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum
-          definitiones no quo, maluisset concludaturque et eum, altera fabulas
-          ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum.
-          Affert laboramus repudiandae nec et. Inciderint efficiantur his ad.
-          Eum no molestiae voluptatibus.
-        </p>
-        <p>
-          Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum
-          definitiones no quo, maluisset concludaturque et eum, altera fabulas
-          ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum.
-          Affert laboramus repudiandae nec et. Inciderint efficiantur his ad.
-          Eum no molestiae voluptatibus.
-        </p>
-        <p>
-          Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum
-          definitiones no quo, maluisset concludaturque et eum, altera fabulas
-          ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum.
-          Affert laboramus repudiandae nec et. Inciderint efficiantur his ad.
-          Eum no molestiae voluptatibus.
-        </p>
-        <p>
-          Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum
-          definitiones no quo, maluisset concludaturque et eum, altera fabulas
-          ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum.
-          Affert laboramus repudiandae nec et. Inciderint efficiantur his ad.
-          Eum no molestiae voluptatibus.
-        </p>{" "}
-        <p>
-          Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum
-          definitiones no quo, maluisset concludaturque et eum, altera fabulas
-          ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum.
-          Affert laboramus repudiandae nec et. Inciderint efficiantur his ad.
-          Eum no molestiae voluptatibus.
-        </p>{" "}
-        <p>
-          Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum
-          definitiones no quo, maluisset concludaturque et eum, altera fabulas
-          ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum.
-          Affert laboramus repudiandae nec et. Inciderint efficiantur his ad.
-          Eum no molestiae voluptatibus.
-        </p>{" "}
-        <p>
-          Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum
-          definitiones no quo, maluisset concludaturque et eum, altera fabulas
-          ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum.
-          Affert laboramus repudiandae nec et. Inciderint efficiantur his ad.
-          Eum no molestiae voluptatibus.
-        </p>{" "}
-        <p>
-          Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum
-          definitiones no quo, maluisset concludaturque et eum, altera fabulas
-          ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum.
-          Affert laboramus repudiandae nec et. Inciderint efficiantur his ad.
-          Eum no molestiae voluptatibus.
-        </p>{" "}
-        <p>
-          Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum
-          definitiones no quo, maluisset concludaturque et eum, altera fabulas
-          ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum.
-          Affert laboramus repudiandae nec et. Inciderint efficiantur his ad.
-          Eum no molestiae voluptatibus.
-        </p>{" "}
-        <p>
-          Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum
-          definitiones no quo, maluisset concludaturque et eum, altera fabulas
-          ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum.
-          Affert laboramus repudiandae nec et. Inciderint efficiantur his ad.
-          Eum no molestiae voluptatibus.
-        </p>
+        <h1>Your Seraching {location.state}</h1>
+        <div className="viewall-card">
+          {productListReducer &&
+            cat.map((pd) => <ProductCard key={pd._id} pd={pd}></ProductCard>)}
+        </div>
       </div>
     </div>
   );

@@ -9,6 +9,7 @@ import freelancing from "../../../Assets/freelancing.png";
 import west from "../../../Assets/west.png";
 import BooksSuggestionButton from "./BooksSuggestionButton/BooksSuggestionButton";
 import RecentlySoldBooks from "./RecentlySoldBooks/RecentlySoldBooks";
+import Novel from "./Novel/Novel";
 const Books = () => {
   return (
     <>
@@ -95,6 +96,7 @@ const Books = () => {
       </div>
       <RecentlySoldBooks></RecentlySoldBooks>
       <BooksSuggestionButton />
+      <Novel></Novel>
     </>
   );
 };

@@ -1,18 +1,32 @@
-import React from "react";
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { requestProductList } from "../../../store/action/productAction";
+import ProductCard from "./../ProductCard/ProductCard";
 
 const Electronics = () => {
+  const dispatch = useDispatch();
+  const { token } = useSelector((state) => state.persistedStorage.currentUser);
+  const { productListReducer } = useSelector((state) => state);
+
+  useEffect(() => {
+    dispatch(requestProductList(token));
+  }, [token]);
+  if (productListReducer) {
+    var total = productListReducer.length;
+
+    var cat = productListReducer.filter(
+      (pd) => pd.category.name === "Electronics"
+    );
+  }
   return (
     <>
-      <div class="navbar">
-        <a href="#home">Science Kit</a>
-        <a href="#news">Casio Calculator</a>
-        <a href="#news">Smart Watch</a>
-        <a href="#news">Mouse</a>
-        <a href="#news">Keyboard</a>
-        <a href="#news">Router</a>
-        <a href="#news">Power-Bank</a>
-        <a href="#news">Headphone</a>
-        <a href="#news">UPS-&-Stabilizer</a>
+      <h1>Electronics Products</h1>
+      <div className="viewall-card">
+        {productListReducer &&
+          cat.map((pd) => <ProductCard key={pd._id} pd={pd}></ProductCard>)}
       </div>
     </>
   );

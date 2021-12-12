@@ -14,7 +14,7 @@
 .sidenav a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
-  font-size: 25px;
+
   color: #818181;
   display: block;
 }
@@ -25,12 +25,22 @@
 
 .main {
   margin-left: 260px; /* Same as the width of the sidenav */
-  font-size: 28px; /* Increased text to enable scrolling */
-  padding: 0px 10px;
+  /* Increased text to enable scrolling */
+}
+.main h1 {
+  text-align: center;
+  text-transform: uppercase;
+  color: rgb(255, 218, 6);
 }
 
 @media screen and (max-height: 450px) {
   .sidenav {
     padding-top: 15px;
   }
+}
+.viewall-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
