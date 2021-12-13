@@ -1,16 +1,40 @@
 import React from "react";
 import { BASE_URL } from "../../../utils/constants";
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { setPersistedCart } from "./../../../store/action/cartAction";
 
+import { requestAddCartItem } from "../../../store/action/cartAction";
 const ProductCard = ({ pd }) => {
+  const navigate = useNavigate();
+  const goForEdit = (id) => {
+    navigate(`/product/${id}`);
+  };
+  const dispatch = useDispatch();
+  const { role, token } = useSelector(
+    (state) => state.persistedStorage.currentUser
+  );
+  const handleAddToCart = (productId) => {
+    if (token === "") {
+      navigate("/login");
+      dispatch(setPersistedCart(productId));
+    } else if (role === "user") {
+      dispatch(requestAddCartItem(productId, token));
+    }
+  };
   return (
     <div>
       <div class="card">
         <div>
-          <img src={BASE_URL + pd.image} alt="Avatar" />
+          <img
+            onClick={() => goForEdit(pd._id)}
+            src={BASE_URL + pd.image}
+            alt="Avatar"
+          />
           <div class=" rct-books-container">
             <small> {pd.title}</small>
             <p>Price: {pd.price}</p>
-            <button>Add Cart</button>
+            <button onClick={() => handleAddToCart(pd._id)}>Add Cart</button>
           </div>
         </div>
       </div>

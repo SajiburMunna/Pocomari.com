@@ -34,7 +34,7 @@ const AdminEditProducts = () => {
   const { categoryList } = useSelector((state) => state.categoryReducer);
   const { token } = useSelector((state) => state.persistedStorage.currentUser);
   const { editProductReducer } = useSelector((state) => state);
-  console.log(token);
+
   useEffect(() => {
     dispatch(requestCategoryList());
     dispatch(requestSingleProduct(id, token));

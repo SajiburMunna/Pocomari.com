@@ -16,8 +16,12 @@ import {
 import axios from "axios";
 
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import loginbanner from "../../../Assets/loginbanner.png";
 
 const Login = () => {
+  const location = useLocation();
+  console.log(location);
   const [signUpForm, setSignUpForm] = useState(false);
   const [loginError, setLoginError] = useState(true);
   const navigate = useNavigate();
@@ -93,17 +97,7 @@ const Login = () => {
               </div>
 
               <div className="col">
-                <a href="##" className="fb btn">
-                  <FacebookIcon />
-                  <span>Login with Facebook</span>
-                </a>
-                <a href="##" className="twitter btn">
-                  <TwitterIcon />
-                  <span> Login with Twitter</span>
-                </a>
-                <a href="##" className="google btn">
-                  <GoogleIcon /> <span>Login with Google</span>
-                </a>
+                <img src={loginbanner} width="500px" alt="" />
               </div>
 
               <div className="col">
@@ -126,6 +120,7 @@ const Login = () => {
                       : setSignInValue("email", e)
                   }
                 />
+                <br />
                 {signUpForm ? (
                   <input
                     type="text"
@@ -136,7 +131,7 @@ const Login = () => {
                     onChange={(e) => setRegValue("username", e)}
                   />
                 ) : null}
-
+                <br />
                 <input
                   type="password"
                   name="password"
@@ -149,6 +144,7 @@ const Login = () => {
                       : setSignInValue("password", e)
                   }
                 />
+                <br />
                 <input type="submit" value={signUpForm ? "SignUp" : "Signin"} />
               </div>
             </div>
@@ -159,14 +155,29 @@ const Login = () => {
               <div className="col">
                 <p className="btn">
                   {signUpForm ? (
-                    <p onClick={() => setSignUpForm(false)}>Signin</p>
+                    <p
+                      style={{ color: "white", cursor: "pointer" }}
+                      onClick={() => setSignUpForm(false)}
+                    >
+                      Signin
+                    </p>
                   ) : (
-                    <p onClick={() => setSignUpForm(true)}>SignUp</p>
+                    <p
+                      style={{ color: "white", cursor: "pointer" }}
+                      onClick={() => setSignUpForm(true)}
+                    >
+                      SignUp
+                    </p>
                   )}
                 </p>
               </div>
               <div className="col">
-                <p className="btn">Forgot password?</p>
+                <p
+                  style={{ color: "white", cursor: "pointer" }}
+                  className="btn"
+                >
+                  Forgot password?
+                </p>
               </div>
             </div>
           </div>

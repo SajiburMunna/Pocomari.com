@@ -16,7 +16,7 @@ const Novel = () => {
   const dispatch = useDispatch();
   const { token } = useSelector((state) => state.persistedStorage.currentUser);
   const { productListReducer } = useSelector((state) => state);
-  console.log(productListReducer);
+
   useEffect(() => {
     dispatch(requestProductList(token));
   }, [token]);
@@ -27,7 +27,6 @@ const Novel = () => {
     var total = productListReducer.length;
     var cat = productListReducer.filter((pd) => pd.category.name === "Novel");
     var cattotal = cat.length;
-    console.log(cat);
   }
 
   const [showPerPage, setShowPerPage] = useState(5);

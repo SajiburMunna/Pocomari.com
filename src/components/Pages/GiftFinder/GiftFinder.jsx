@@ -1,10 +1,9 @@
 import React from "react";
-import ProductsDetails from "./../Products/ProductsDetails/ProductsDetails";
 
 const GiftFinder = () => {
   return (
     <div>
-      <ProductsDetails />
+      <h1>coming soon.....</h1>
     </div>
   );
 };

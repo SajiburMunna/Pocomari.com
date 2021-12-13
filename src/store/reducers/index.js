@@ -10,6 +10,8 @@ import productListReducer from "./ProductReducer/ProductListReducer";
 import editProductReducer from "./ProductReducer/editProductReducer";
 import ProductsDetails from "./../../components/Pages/Products/ProductsDetails/ProductsDetails";
 import UserListReducer from "./UserReducer/UserListReducer";
+import productDetailsReducer from "./ProductReducer/productDetailsReducer";
+import CartReducer from "./CartReducer/cartReducer";
 
 const persistConfig = {
   key: "pocomari",
@@ -32,5 +34,7 @@ const rootReducer = combineReducers({
   editProductReducer,
   ProductsDetails,
   UserListReducer,
+  productDetailsReducer,
+  CartReducer,
 });
 export default rootReducer;

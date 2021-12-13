@@ -4,7 +4,7 @@
 
   border-radius: 20px;
   background: #ffffff;
-  box-shadow: 12px 12px 24px #b6b6b6, -12px -12px 24px #ffffff;
+  border: 1px solid red;
 }
 .recentlysoldbooks-content h2 {
   margin-left: 20px;

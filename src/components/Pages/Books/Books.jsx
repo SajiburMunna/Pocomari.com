@@ -13,49 +13,7 @@ import Novel from "./Novel/Novel";
 const Books = () => {
   return (
     <>
-      <div class="navbar">
-        <div class="dropdown">
-          <button class="dropbtn">
-            Authors🔽
-            <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-            <a href="##">Link 1</a>
-            <a href="##">Link 2</a>
-            <a href="##">Link 3</a>
-          </div>
-        </div>
-        <div class="dropdown">
-          <button class="dropbtn">
-            Subjects🔽
-            <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-            <a href="##">Link 1</a>
-            <a href="##">Link 2</a>
-            <a href="##">Link 3</a>
-          </div>
-        </div>
-        <div class="dropdown">
-          <button class="dropbtn">
-            Publications🔽
-            <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-            <a href="##">Link 1</a>
-            <a href="##">Link 2</a>
-            <a href="##">Link 3</a>
-          </div>
-        </div>
-
-        <a href="#home">Islamic Books</a>
-        <a href="#news">Book fair-2021</a>
-        <a href="#news">Bestseller books</a>
-        <a href="#news">Novel</a>
-        <a href="#news">Science box</a>
-        <a href="#news">Stock products</a>
-      </div>
-      <div>
+      <div style={{ marginBottom: "20px" }}>
         <Carousel
           plugins={[
             "infinite",
@@ -68,19 +26,33 @@ const Books = () => {
           ]}
           animationSpeed={0}
         >
-          <img
-            style={{ height: "200px", width: "1200px" }}
-            src={banner1}
-            alt="banner1"
-          />
-          <img
-            style={{ height: "200px", width: "1200px" }}
-            src={banner2}
-            alt="banner2"
-          />
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <img
+              style={{
+                height: "250px",
+                width: "1300px",
+                textAlign: "center",
+                borderRadius: "20px",
+              }}
+              src={banner1}
+              alt="banner1"
+            />
+          </div>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <img
+              style={{
+                height: "250px",
+                width: "1300px",
+                textAlign: "center",
+                borderRadius: "20px",
+              }}
+              src={banner2}
+              alt="banner2"
+            />
+          </div>
         </Carousel>
       </div>
-
+      <RecentlySoldBooks></RecentlySoldBooks>
       <div>
         <div className="instock-banner">
           <div>
@@ -94,7 +66,7 @@ const Books = () => {
           </div>
         </div>
       </div>
-      <RecentlySoldBooks></RecentlySoldBooks>
+
       <BooksSuggestionButton />
       <Novel></Novel>
     </>

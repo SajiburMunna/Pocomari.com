@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import "./Navbar.css";
 
 import pocologo from "../../Assets/pocologo.png";
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+
 import SearchIcon from "@mui/icons-material/Search";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -11,14 +11,29 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { requestUserInfoByUser } from "../../store/action/userAction";
 import { setToken } from "../../store/action/authAction";
+import Badge from "@mui/material/Badge";
+import { styled } from "@mui/material/styles";
+import IconButton from "@mui/material/IconButton";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { requestCartList } from "../../store/action/cartAction";
+
+const StyledBadge = styled(Badge)(({ theme }) => ({
+  "& .MuiBadge-badge": {
+    right: -3,
+    top: 13,
+    border: `2px solid ${theme.palette.background.paper}`,
+    padding: "0 4px",
+  },
+}));
 
 const Navbar = () => {
   const { token } = useSelector((state) => state.persistedStorage.currentUser);
   const dispatch = useDispatch();
-
+  const { cartList } = useSelector((state) => state.CartReducer);
   useEffect(() => {
     if (token !== "") {
       dispatch(requestUserInfoByUser(token));
+      dispatch(requestCartList(token));
     }
   }, [token]);
 
@@ -35,6 +50,9 @@ const Navbar = () => {
         userInfo: { user: "", role: "", token: "" },
       })
     );
+  };
+  const goToCart = () => {
+    navigate("/cart");
   };
   return (
     <div>
@@ -61,7 +79,21 @@ const Navbar = () => {
             </form>
           </div>
           <div>
-            <ShoppingCartOutlinedIcon fontSize="large" className="cartIcon" />
+            <IconButton onClick={() => goToCart()} aria-label="cart">
+              <StyledBadge
+                badgeContent={
+                  cartList?.status === 0
+                    ? cartList?.products.reduce(
+                        (total, item) => total + item.quantity,
+                        0
+                      )
+                    : 0
+                }
+                color="secondary"
+              >
+                <ShoppingCartIcon />
+              </StyledBadge>
+            </IconButton>
           </div>
           <div>
             {token === "" ? (

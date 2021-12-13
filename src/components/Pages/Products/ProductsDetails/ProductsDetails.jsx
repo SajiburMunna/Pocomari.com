@@ -1,20 +1,16 @@
-import React, { useState } from "react";
+/* eslint-disable react-hooks/rules-of-hooks */
+/* eslint-disable no-unused-vars */
+import React, { useState, useEffect } from "react";
 import "./ProductsDetails.css";
 import p1 from "../../../../Assets/p1.jpg";
 import ProductsReviewRating from "../ProductsReviewRating/ProductsReviewRating";
+import { useParams } from "react-router";
+import { useDispatch } from "react-redux";
+
+import { useSelector } from "react-redux";
+import { requestSingleProduct } from "../../../../store/action/productAction";
 
 const ProductsDetails = () => {
-  // const [showdetails, setShowdetils] = useState(true);
-  // const [showdet, setShowdet] = useState(false);
-
-  // const show = () => {
-  //   setShowdetils(true);
-  //   setShowdet(false);
-  // };
-  // const show1 = () => {
-  //   setShowdetils(false);
-  //   setShowdet(true);
-  // };
   return (
     <>
       <div className="pd-details-content">
@@ -23,10 +19,9 @@ const ProductsDetails = () => {
             <img src={p1} alt="" />
           </div>
           <div>
-            <p>BooksName:Chagol Palon</p>
-            <p>By Chagol</p>
-            <p> Category: গবাদি পশু</p>
-            <p> TK. 245</p>
+            <p>BooksName: </p>
+            <p> Category: </p>
+            <p> TK. </p>
             <button className="pd-details-addcat-btn-border  pd-details-addcat-btn">
               ADD CART
             </button>
@@ -116,7 +111,6 @@ const ProductsDetails = () => {
           </p>
         </div>
       ) : null} */}
-      <ProductsReviewRating></ProductsReviewRating>
     </>
   );
 };

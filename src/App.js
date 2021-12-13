@@ -15,6 +15,9 @@ import ViewAll from "./components/Pages/ViewAll/ViewAll";
 import { useSelector } from "react-redux";
 import Admin from "./admin/Admin/Admin";
 
+import Prodcutdet from "./components/Pages/Products/Prodcutdet";
+import Cart from "./components/Pages/Cart/Cart";
+
 function App() {
   const { role } = useSelector((state) => state.persistedStorage.currentUser);
   console.log(role);
@@ -40,6 +43,8 @@ function App() {
               <Route path="/blog" element={<Blog />} />
               <Route path="/login" element={<Login />} />
               <Route path="/viewall" element={<ViewAll />} />
+              <Route path="/product/:id" element={<Prodcutdet />} />
+              <Route path="/cart" element={<Cart />} />
             </Routes>
             <div className="footer-down ">
               <Footer />
