@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 import DeleteIcon from "@mui/icons-material/Delete";
 
@@ -12,8 +12,10 @@ import {
 } from "../../../store/action/cartAction";
 import "./Cart.css";
 import { BASE_URL } from "../../../utils/constants";
+import { requestCheckOut } from "./../../../store/action/cartAction";
 
 const Cart = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { cartList } = useSelector((state) => state.CartReducer);
 
@@ -26,6 +28,10 @@ const Cart = () => {
   };
   const handleDeleteCartItem = (id) => {
     dispatch(deleteProductFromCart(id, token));
+  };
+  const checkOut = () => {
+    dispatch(requestCheckOut(token));
+    navigate("/myorder");
   };
   return (
     <div>
@@ -131,8 +137,7 @@ const Cart = () => {
                 : 0}{" "}
               TK
             </p>
-            <button className="button">
-              {" "}
+            <button onClick={() => checkOut()} className="button">
               <span>CheckOut </span>
             </button>
           </div>

@@ -17,6 +17,7 @@ import Admin from "./admin/Admin/Admin";
 
 import Prodcutdet from "./components/Pages/Products/Prodcutdet";
 import Cart from "./components/Pages/Cart/Cart";
+import MyOrder from "./components/Pages/MyOrder/MyOrder";
 
 function App() {
   const { role } = useSelector((state) => state.persistedStorage.currentUser);
@@ -45,6 +46,7 @@ function App() {
               <Route path="/viewall" element={<ViewAll />} />
               <Route path="/product/:id" element={<Prodcutdet />} />
               <Route path="/cart" element={<Cart />} />
+              <Route path="/myorder" element={<MyOrder />} />
             </Routes>
             <div className="footer-down ">
               <Footer />

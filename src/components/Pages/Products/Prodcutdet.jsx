@@ -77,25 +77,26 @@ const Prodcutdet = () => {
         </div>
         <div className="related-boos-content">
           <p>Related Books</p>
-          {samcat.slice(0, 2).map((pd) => (
-            <div class="flip-card">
-              <div class="flip-card-inner">
-                <div class="flip-card-front">
-                  <img
-                    src={`${BASE_URL}${pd?.image}`}
-                    alt="Avatar"
-                    style={{ width: "150px", height: "150px" }}
-                  />
-                </div>
-                <div class="flip-card-back">
-                  <small>Name:{pd?.title}</small>
-                  <br />
-                  <small>Category:{pd?.category.name}</small>
-                  <p>Price:{pd?.price}</p>
+          {samcat &&
+            samcat.slice(0, 2).map((pd) => (
+              <div key={pd._id} class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <img
+                      src={`${BASE_URL}${pd?.image}`}
+                      alt="Avatar"
+                      style={{ width: "150px", height: "150px" }}
+                    />
+                  </div>
+                  <div class="flip-card-back">
+                    <small>Name:{pd?.title}</small>
+                    <br />
+                    <small>Category:{pd?.category.name}</small>
+                    <p>Price:{pd?.price}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>
     </div>

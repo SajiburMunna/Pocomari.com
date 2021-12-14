@@ -14,9 +14,10 @@
 .sidenav a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
-
+  font-size: x-large;
   color: #818181;
   display: block;
+  cursor: pointer;
 }
 
 .sidenav a:hover {
@@ -30,7 +31,7 @@
 .main h1 {
   text-align: center;
   text-transform: uppercase;
-  color: rgb(255, 218, 6);
+  color: rgb(3, 3, 0);
 }
 
 @media screen and (max-height: 450px) {
@@ -43,4 +44,28 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+}
+.paginationBttns {
+  width: 80%;
+  height: 40px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-left: 60px;
+}
+.paginationBttns a {
+  padding: 10px;
+  margin: 8px;
+  border-radius: 5px;
+  border: 2px solid rgb(20, 26, 26);
+  color: rgb(58, 29, 112);
+  cursor: pointer;
+}
+.paginationBttns a:hover {
+  color: white;
+  background-color: violet;
+}
+.paginationActive a {
+  color: white;
+  background-color: violet;
 }

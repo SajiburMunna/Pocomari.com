@@ -25,7 +25,7 @@
 
 input:not([type="bu"]):focus,
 select:focus {
-  border: 1px solid #2196f3;
+  border: 1px solid #ffcd05;
   outline: none;
 }
 .example button {
@@ -33,10 +33,10 @@ select:focus {
   width: 50px;
   height: 42px;
 
-  background: #2196f3;
+  background: #ffcd05;
   color: white;
   font-size: 17px;
-  border: 1px solid #2196f3;
+  border: 1px solid #ffcd05;
   border-left: none;
   cursor: pointer;
   margin-top: 5px;
@@ -49,7 +49,7 @@ select:focus {
 }
 
 .example button:hover {
-  background: #0b7dda;
+  background: #121314;
 }
 
 .example::after {
@@ -59,13 +59,15 @@ select:focus {
 }
 
 .success {
-  border-color: #29ee5a;
+  padding: 5px;
+
+  border-color: #d0ecd7;
 
   border: 2px solid rgb(235, 225, 225);
   background-color: white;
   color: black;
 
-  font-size: 15px;
+  font-size: 25px;
   cursor: pointer;
   border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -87,7 +89,7 @@ select:focus {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  background-color: rgb(123, 187, 4);
+  background-color: whitesmoke;
   margin: 0 89px 0 72px;
   border-radius: 5px;
   -webkit-border-radius: 5px;

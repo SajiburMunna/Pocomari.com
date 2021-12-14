@@ -12,20 +12,26 @@ import ProductsDetails from "./../../components/Pages/Products/ProductsDetails/P
 import UserListReducer from "./UserReducer/UserListReducer";
 import productDetailsReducer from "./ProductReducer/productDetailsReducer";
 import CartReducer from "./CartReducer/cartReducer";
+import recentViewProductReducer from "./RecentViewProductsReducer/RecentViewProductsReducer";
+import OrdersReducer from "./OrderReducer/OrdersReducer";
+import UserOrderListReducer from "./OrderReducer/UserOrderListReducer";
 
 const persistConfig = {
   key: "pocomari",
   storage: storage,
 };
-// const persistConfig2 = {
-//   key: "pocomariCart",
-//   storage: storage,
-// };
+const persistConfig2 = {
+  key: "pocomariCart",
+  storage: storage,
+};
+
 const persistedStorage = persistReducer(persistConfig, authReducer);
-// const PersistedCartStorage = persistReducer(persistConfig2);
+const PersistedCartStorage = persistReducer(persistConfig2, CartReducer);
+
 const rootReducer = combineReducers({
   persistedStorage,
-  // PersistedCartStorage,
+  PersistedCartStorage,
+
   addUserReducer,
   CurrentUserInfoReducer,
   categoryReducer,
@@ -36,5 +42,8 @@ const rootReducer = combineReducers({
   UserListReducer,
   productDetailsReducer,
   CartReducer,
+  recentViewProductReducer,
+  OrdersReducer,
+  UserOrderListReducer,
 });
 export default rootReducer;

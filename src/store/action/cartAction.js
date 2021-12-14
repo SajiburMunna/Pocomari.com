@@ -1,6 +1,8 @@
+/* eslint-disable no-unused-vars */
 import axios from "axios";
 import { actionTypes } from "./../actionTypes";
 import { BASE_URL } from "./../../utils/constants";
+import { requestOrdersByUser } from "./orderAction";
 
 export const setPersistedCart = (productId) => {
   return {
@@ -143,5 +145,6 @@ export const requestCheckOut = (token) => {
       },
     });
     dispatch(requestCartList(token));
+    dispatch(requestOrdersByUser(token));
   };
 };

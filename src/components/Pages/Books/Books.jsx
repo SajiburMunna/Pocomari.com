@@ -14,7 +14,7 @@ const Books = () => {
   return (
     <>
       <div style={{ marginBottom: "20px" }}>
-        <Carousel
+        {/* <Carousel
           plugins={[
             "infinite",
             {
@@ -50,7 +50,7 @@ const Books = () => {
               alt="banner2"
             />
           </div>
-        </Carousel>
+        </Carousel> */}
       </div>
       <RecentlySoldBooks></RecentlySoldBooks>
       <div>

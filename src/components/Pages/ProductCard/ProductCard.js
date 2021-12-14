@@ -5,9 +5,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { setPersistedCart } from "./../../../store/action/cartAction";
 
 import { requestAddCartItem } from "../../../store/action/cartAction";
+import recentViewProductReducer from "./../../../store/reducers/RecentViewProductsReducer/RecentViewProductsReducer";
+
 const ProductCard = ({ pd }) => {
+  console.log(pd);
   const navigate = useNavigate();
   const goForEdit = (id) => {
+    // dispatch(recentViewProductReducer(pd));
     navigate(`/product/${id}`);
   };
   const dispatch = useDispatch();
@@ -17,6 +21,7 @@ const ProductCard = ({ pd }) => {
   const handleAddToCart = (productId) => {
     if (token === "") {
       navigate("/login");
+
       dispatch(setPersistedCart(productId));
     } else if (role === "user") {
       dispatch(requestAddCartItem(productId, token));
