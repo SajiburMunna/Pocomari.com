@@ -40,8 +40,9 @@ Pocomari is an e-commerce application where user can registration, sign in, see 
 ![search](https://user-images.githubusercontent.com/77797499/146232535-be405ac9-4685-42ec-a669-c55a3c90d731.PNG)
 ## 7. Cart Page
 ![cartpage](https://user-images.githubusercontent.com/77797499/146232654-cfbd6566-7d20-4dbf-b3d3-148e78ad50f8.PNG)
-## 8. Order Page
-![myorder](https://user-images.githubusercontent.com/77797499/146232755-f3820eec-3b65-4508-9cc5-ebb413182c12.PNG)
+## 8. My Order Page
+ ![image](https://user-images.githubusercontent.com/77797499/146237973-ccb692ec-88bc-4e1c-a319-44a923f02eea.png)
+
 
 
 # ScreenShots of Admin Site
@@ -62,7 +63,13 @@ ts
 2.Run yarn or npm install to install all the dependencies.</br>
 3.Once installed, run yarn start or npm start.</br>
 4.The project will run by default on 3000 port.
+
 # Website
+Website Link: https://pocomar.netlify.app/ </br>
+Admin_email: admin@gmail.com </br>
+Password: 12345678 </br>
+Customer_email: customer@gmail.com  </br>
+Password: 12345678 </br>
 
 
 
