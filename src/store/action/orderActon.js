@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import axios from "axios";
-import { BASE_URL } from "./../../utils/constants";
-import { actionTypes } from "./../actionTypes";
+import { BASE_URL } from "../../utils/constants";
+import { actionTypes } from "../actionTypes";
 
 export const setOrderList = (orderList) => {
   return {

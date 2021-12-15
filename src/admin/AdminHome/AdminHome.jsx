@@ -39,9 +39,6 @@ const AdminHome = () => {
       </div>
       <div className="admin-home-dashboard-div">
         <p>Total Orders</p>
-        <p>Delivered Orders</p>
-        <p>Pending Orders</p>
-        <p>Canceled Orders</p>
       </div>
       <div className="admin-home-dashboard-div">
         <p>Total Users</p>
@@ -53,6 +50,15 @@ const AdminHome = () => {
       </div>
       <div className="admin-home-dashboard-div">
         <p>Total View Products</p>
+        <span>100</span>
+      </div>
+      <div className="admin-home-dashboard-div">
+        <p>Upcomig Products</p>
+        <span>100</span>
+      </div>
+      <div className="admin-home-dashboard-div">
+        <p>Pending Order</p>
+
         <span>100</span>
       </div>
     </div>

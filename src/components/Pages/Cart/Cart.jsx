@@ -30,8 +30,8 @@ const Cart = () => {
     dispatch(deleteProductFromCart(id, token));
   };
   const checkOut = () => {
-    dispatch(requestCheckOut(token));
     navigate("/myorder");
+    dispatch(requestCheckOut(token));
   };
   return (
     <div>

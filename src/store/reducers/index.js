@@ -11,9 +11,9 @@ import editProductReducer from "./ProductReducer/editProductReducer";
 import ProductsDetails from "./../../components/Pages/Products/ProductsDetails/ProductsDetails";
 import UserListReducer from "./UserReducer/UserListReducer";
 import productDetailsReducer from "./ProductReducer/productDetailsReducer";
-import CartReducer from "./CartReducer/cartReducer";
-import recentViewProductReducer from "./RecentViewProductsReducer/RecentViewProductsReducer";
+import CartReducer from "./CartReducer/CartReducer";
 import OrdersReducer from "./OrderReducer/OrdersReducer";
+import PersistedCartReducer from "./CartReducer/PersistedCartReducer";
 import UserOrderListReducer from "./OrderReducer/UserOrderListReducer";
 
 const persistConfig = {
@@ -26,7 +26,10 @@ const persistConfig2 = {
 };
 
 const persistedStorage = persistReducer(persistConfig, authReducer);
-const PersistedCartStorage = persistReducer(persistConfig2, CartReducer);
+const PersistedCartStorage = persistReducer(
+  persistConfig2,
+  PersistedCartReducer
+);
 
 const rootReducer = combineReducers({
   persistedStorage,
@@ -42,7 +45,6 @@ const rootReducer = combineReducers({
   UserListReducer,
   productDetailsReducer,
   CartReducer,
-  recentViewProductReducer,
   OrdersReducer,
   UserOrderListReducer,
 });

@@ -37,27 +37,6 @@ input:hover,
 }
 
 /* add appropriate colors to fb, twitter and google buttons */
-.fb {
-  background-color: #3b5998;
-  color: white;
-  display: flex;
-
-  align-items: center;
-}
-
-.twitter {
-  background-color: #55acee;
-  color: white;
-  display: flex;
-  align-items: center;
-}
-
-.google {
-  background-color: #dd4b39;
-  color: white;
-  display: flex;
-  align-items: center;
-}
 
 /* style the submit button */
 input[type="submit"] {
@@ -76,7 +55,7 @@ input[type="submit"]:hover {
   width: 50%;
   margin: auto;
   padding: 0 50px;
-  margin-top: 6px;
+  margin-top: 20px;
   text-align: center;
 }
 
@@ -94,6 +73,7 @@ input[type="submit"]:hover {
   transform: translate(-50%);
   border: 2px solid rgb(221, 221, 221);
   height: 175px;
+  margin-top: 55px;
 }
 
 /* text inside the vertical line */
@@ -115,9 +95,9 @@ input[type="submit"]:hover {
 /* bottom container */
 .bottom-container {
   text-align: center;
-  background-color: rgb(42, 42, 42);
+  background-color: rgb(136, 133, 133);
   border-radius: 0px 0px 4px 4px;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 .bottom-container a {
   color: white;

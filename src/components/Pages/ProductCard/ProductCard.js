@@ -5,7 +5,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { setPersistedCart } from "./../../../store/action/cartAction";
 
 import { requestAddCartItem } from "../../../store/action/cartAction";
-import recentViewProductReducer from "./../../../store/reducers/RecentViewProductsReducer/RecentViewProductsReducer";
 
 const ProductCard = ({ pd }) => {
   console.log(pd);

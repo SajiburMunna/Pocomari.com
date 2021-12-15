@@ -1,17 +1,18 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState } from "react";
+import { requestOrdersByUser } from "../../../store/action/orderActon";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { requestOrdersByUser } from "../../../store/action/orderAction";
+import { useEffect } from "react";
 
 const MyOrder = () => {
-  const [data, setData] = useState();
-  console.log(data);
   const dispatch = useDispatch();
+
   const { token } = useSelector((state) => state.persistedStorage.currentUser);
-  console.log(token);
-  const { UserOrderListReducer } = useSelector((state) => state);
-  console.log(UserOrderListReducer && UserOrderListReducer);
+  const userOrderList = useSelector(
+    (state) => state.UserOrderListReducer.userOrderList
+  );
+  console.log(userOrderList);
 
   useEffect(() => {
     dispatch(requestOrdersByUser(token));
@@ -19,27 +20,28 @@ const MyOrder = () => {
   return (
     <div>
       <h1>My Order</h1>
+
       <table>
         <tr>
-          <th>Product Image</th>
-          <th>ProductName</th>
-          <th>ProductCategory</th>
-          <th>ProductPrice</th>
-          <th>ProductQunatity</th>
-          <th>Order Date</th>
-          <th>Order Status</th>
+          <th>ProductID</th>
+          <th>ProductStatus</th>
+          <th>ProductDate</th>
         </tr>
-        {
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td> </td>
-            <td></td>
-          </tr>
-        }
+
+        {userOrderList &&
+          userOrderList.map((pd) => (
+            <tr key={pd._id}>
+              <td>{pd._id} </td>
+              <td>
+                {pd.status === 0
+                  ? "panding"
+                  : pd.status === 1
+                  ? "Deliverd"
+                  : "cencel"}{" "}
+              </td>
+              <td>{new Date(pd.date).toUTCString()}</td>
+            </tr>
+          ))}
       </table>
     </div>
   );

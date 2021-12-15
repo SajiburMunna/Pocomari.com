@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Navbar.css";
 
 import pocologo from "../../Assets/pocologo.png";
@@ -54,6 +54,18 @@ const Navbar = () => {
   const goToCart = () => {
     navigate("/cart");
   };
+  const [search, setSearch] = useState("");
+  console.log(search);
+
+  const setSearchValue = (e) => {
+    e.preventDefault();
+    setSearch(e.target.value);
+  };
+  const goSearch = () => {
+    if (search !== "") {
+      navigate("/search", { state: search });
+    }
+  };
   return (
     <div>
       <div className="navcontent">
@@ -70,13 +82,16 @@ const Navbar = () => {
           />
         </div>
         <div className=" head ">
-          <div>
-            <form className="example">
-              <input type="text" placeholder="Search.." />
-              <button type="submit">
-                <SearchIcon fontSize="large" />
-              </button>
-            </form>
+          <div className="example">
+            <input
+              type="text"
+              placeholder="Search.."
+              value={search}
+              onChange={(e) => setSearchValue(e)}
+            />
+            <button onClick={() => goSearch()}>
+              <SearchIcon fontSize="large" />
+            </button>
           </div>
           <div>
             <IconButton onClick={() => goToCart()} aria-label="cart">

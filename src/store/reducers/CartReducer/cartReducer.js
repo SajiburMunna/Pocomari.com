@@ -1,4 +1,5 @@
 import { actionTypes } from "../../actionTypes";
+
 const initialState = {
   cartList: null,
 };

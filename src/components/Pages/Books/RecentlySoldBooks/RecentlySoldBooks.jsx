@@ -10,6 +10,7 @@ import { requestProductList } from "./../../../../store/action/productAction";
 import { BASE_URL } from "./../../../../utils/constants";
 import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
+import ProductCard from "../../ProductCard/ProductCard";
 
 const RecentlySoldBooks = () => {
   const navigate = useNavigate();
@@ -87,20 +88,7 @@ const RecentlySoldBooks = () => {
               cat
                 .slice(pagination.start, pagination.end)
 
-                .map((pd) => (
-                  <div class="card">
-                    <div>
-                      <img src={BASE_URL + pd.image} alt="Avatar" />
-                      <div class=" rct-books-container">
-                        <h4>
-                          <p>{pd.title}</p>
-                        </h4>
-                        <p>Price: {pd.price}</p>
-                        <button>Add Cart</button>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+                .map((pd) => <ProductCard key={pd._id} pd={pd}></ProductCard>)}
             <p
               style={{ cursor: "pointer" }}
               onClick={() => onButtonClick("next")}

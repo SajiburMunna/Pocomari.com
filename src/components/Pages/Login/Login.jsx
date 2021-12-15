@@ -97,7 +97,7 @@ const Login = () => {
               </div>
 
               <div className="col">
-                <img src={loginbanner} width="500px" alt="" />
+                <img src={loginbanner} width="500px" height="200px" alt="" />
               </div>
 
               <div className="col">
@@ -173,7 +173,11 @@ const Login = () => {
               </div>
               <div className="col">
                 <p
-                  style={{ color: "white", cursor: "pointer" }}
+                  style={{
+                    color: "white",
+                    cursor: "pointer",
+                    marginTop: "20px",
+                  }}
                   className="btn"
                 >
                   Forgot password?

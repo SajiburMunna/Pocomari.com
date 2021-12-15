@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 import axios from "axios";
-import { actionTypes } from "./../actionTypes";
-import { BASE_URL } from "./../../utils/constants";
-import { requestOrdersByUser } from "./orderAction";
+import { BASE_URL } from "../../utils/constants";
+import { actionTypes } from "../actionTypes";
+import { requestOrdersByUser } from "./orderActon";
 
 export const setPersistedCart = (productId) => {
   return {
