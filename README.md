@@ -8,6 +8,6 @@ Pocomari is an e-commerce application where user can registration, sign in, see 
 5.Material UI</br>
 6.React Router
 # Features
-## Customer
+## .Customer
 
  
