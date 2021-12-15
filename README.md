@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# POCOMARI
+Pocomari is an e-commerce application where user can registration, sign in, see products, add to cart, checkout,and see order list with order date and order current status. Admin can add  products, product category and can edit and delete them.
+# Tools
+1.Fake ecommerce API ( https://github.com/arnab-shuvo/fakecommerce )</br>
+2.React</br>
+3.Redux</br>
+4.Redux Thunk</br>
+5.Material UI</br>
+6.React Router
+# Features
+## .Customers
+1.Sign in/ sign up using JWT token.</br>
+2.View products in home page.</br>
+3.Search products and sort product by category.</br>
+4.Pagination.</br>
+5.Add to cart.</br>
+6.Proceed to checkout.
+## .Admin
+1.Admin Dashboard.</br>
+2.View products in home page.</br>
+3.Add Products, edit and delete them.</br>
+4.Add Category of product, edit and delete them.</br>
+5.UserList.
+# ScreenShots of Customer Site
+## 1. Home Page-
+-When customers will first visit the website.
+![Home](https://user-images.githubusercontent.com/77797499/146230484-0366b5fa-b350-4913-b895-1c7debc6d2ab.PNG)
+## 2. Signin & Signup Page(Customer/Admin)
+-When customers will click on Loginbutton or before Add Cart. 
+![loginpage](https://user-images.githubusercontent.com/77797499/146231029-c71fb178-7379-4688-ae91-7d0f9d1796fe.PNG)
+## 3. Product Deatils Page
+-When customers will click on Product Image.
+![productdetails](https://user-images.githubusercontent.com/77797499/146231190-4725ae12-6a6e-4a5c-bb90-5620327ce7b1.PNG)
+## 4. Product Filters
+-When customers will on "Viewall" in home page.
+![Viewallfilter](https://user-images.githubusercontent.com/77797499/146232007-ed9c578b-e6d4-4697-84ae-f24e588c6991.PNG)
+## 5. Pagination
+![pagination](https://user-images.githubusercontent.com/77797499/146232251-04c981ab-3ae3-4bc3-a69c-20ac5f1ba611.PNG)
+## 6. Search Product
+![search](https://user-images.githubusercontent.com/77797499/146232535-be405ac9-4685-42ec-a669-c55a3c90d731.PNG)
+## 7. Cart Page
+![cartpage](https://user-images.githubusercontent.com/77797499/146232654-cfbd6566-7d20-4dbf-b3d3-148e78ad50f8.PNG)
+## 8. My Order Page
+ ![image](https://user-images.githubusercontent.com/77797499/146237973-ccb692ec-88bc-4e1c-a319-44a923f02eea.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+# ScreenShots of Admin Site
+## 1. Admin Dashboard
+![AdminDash](https://user-images.githubusercontent.com/77797499/146232992-74515de3-fd45-4c8e-8f5e-a1f536dbf052.PNG)
+## Admin All Products
+![adminallpd](https://user-images.githubusercontent.com/77797499/146233077-3600eed7-fd4a-4ef2-a768-7999aa1a9ef3.PNG)
+## 2. Add Products
+![addproducts](https://user-images.githubusercontent.com/77797499/146233202-59142b77-9e0a-436b-9fcb-bf3d8343ec1e.PNG)
+ts
+## 3. Add Category
+![admincat](https://user-images.githubusercontent.com/77797499/146233384-135301c9-ab4c-4e77-bfea-5ee4b2d94645.PNG)
+## 4. All Users List
+![adminuser](https://user-images.githubusercontent.com/77797499/146233470-49507539-ad19-490c-a4e2-4fd9f94e6b48.PNG)
 
-### `npm start`
+# How To Run
+1.At first clone the project.</br>
+2.Run yarn or npm install to install all the dependencies.</br>
+3.Once installed, run yarn start or npm start.</br>
+4.The project will run by default on 3000 port.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Website
+Website Link: https://pocomari.netlify.app/ </br>
+Admin_email: admin@gmail.com </br>
+Password: 12345678 </br>
+Customer_email: customer@gmail.com  </br>
+Password: 12345678 </br>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
