@@ -65,7 +65,7 @@ ts
 4.The project will run by default on 3000 port.
 
 # Website
-Website Link: https://pocomar.netlify.app/ </br>
+Website Link: https://pocomari.netlify.app/ </br>
 Admin_email: admin@gmail.com </br>
 Password: 12345678 </br>
 Customer_email: customer@gmail.com  </br>
